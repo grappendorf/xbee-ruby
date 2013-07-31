@@ -93,6 +93,21 @@ module XBeeRuby
 
 		end
 
+		describe '#connected?' do
+			context 'if it is not connected' do
+				its(:connected?) { should be_false }
+			end
+
+			context 'if it is connected' do
+				before { xbee.open }
+				its(:connected?) { should be_true }
+			end
+
+			context 'if it is connected and then closed' do
+				before { xbee.open; xbee.close }
+				its(:connected?) { should be_false }
+			end
+		end
 	end
 
 end

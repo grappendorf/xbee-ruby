@@ -27,16 +27,25 @@ module XBeeRuby
 		def initialize port, rate
 			@port = port
 			@rate = rate
+			@connected = false
 		end
 
 		def open
 			@serial = SerialPort.new @port, @rate
 			@serial_input = Enumerator.new { |y| loop do y.yield @serial.readbyte end }
+			@connected = true
 		end
 
 		def close
 			@serial.close
+			@connected = false
 		end
+
+		def connected?
+			@connected
+		end
+
+		alias :open? :connected?
 
 		def write_packet packet
 			@serial.write packet.bytes_escaped.pack('C*').force_encoding('ascii')
