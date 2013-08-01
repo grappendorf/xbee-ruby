@@ -44,16 +44,16 @@ module XBeeRuby
 			end
 		end
 
+		def to_s
+			'%02x%02x' % @address
+		end
+
 		def to_a
 			@address
 		end
 
 		def == other
 			to_a == other.to_a
-		end
-
-		def to_s
-			"Address16(0x#{@address[0].to_s 16}, 0x#{@address[1].to_s 16})"
 		end
 
 		BROADCAST = Address16.new 0xff, 0xfe

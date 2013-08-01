@@ -26,8 +26,8 @@ module XBeeRuby
 
 		subject { Address16.new 0x12, 0x34 }
 
-		describe '#to_a' do
-			its(:to_a) { should == [0x12, 0x34] }
+		describe '#to_s' do
+			its(:to_s) { should == '1234' }
 		end
 
 		describe '::from_s' do

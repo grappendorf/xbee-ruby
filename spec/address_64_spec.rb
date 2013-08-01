@@ -26,6 +26,10 @@ module XBeeRuby
 
 		subject { Address64.new 0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88 }
 
+		describe '#to_s' do
+			its(:to_s) { should == '1122334455667788' }
+		end
+
 		describe '#to_a' do
 			its(:to_a) { should == [0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88] }
 		end
@@ -73,7 +77,6 @@ module XBeeRuby
 		describe '::COORDINATOR' do
 			specify { Address64::COORDINATOR.should == Address64.new(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00) }
 		end
-
 
 	end
 

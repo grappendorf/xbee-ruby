@@ -53,7 +53,7 @@ module XBeeRuby
 		end
 
 		def to_s
-			"Address64(#{@address.map{|b| '0x' + b.to_s(16)}.join ', '})"
+			('%02x' * 8) % @address
 		end
 
 		BROADCAST = Address64.new 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xff, 0xff

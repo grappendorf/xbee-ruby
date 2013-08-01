@@ -47,7 +47,7 @@ module XBeeRuby
 		end
 
 		def to_s
-			"TxResponse[#{super}](address16=#{address16}, retry_count=#{retry_count}, " +
+			"TxResponse[#{super}](address16=0x#{address16}, retry_count=#{retry_count}, " +
 					"delivery_status=#{delivery_status}, discovery_status=#{discovery_status})"
 		end
 	end
