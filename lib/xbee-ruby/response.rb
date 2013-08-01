@@ -29,7 +29,7 @@ module XBeeRuby
 		end
 
 		def self.from_packet packet
-			@@response_types[packet.data[0]].new packet.data
+			@@response_types[packet.data[0]].new packet.data rescue raise IOError, "Unknown response type 0x#{packet.data[0].to_s 16}"
 		end
 
 		attr_reader :frame_id
