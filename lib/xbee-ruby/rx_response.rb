@@ -45,7 +45,7 @@ module XBeeRuby
 		end
 
 		def to_s
-			"RxResponse[#{super}](address64=#{address64}, address16=#{address16}, receive_otions=#{receive_otions})"
+			"RxResponse[#{super}](address64=#{address64}, address16=#{address16}, receive_otions=#{receive_options})"
 		end
 	end
 
