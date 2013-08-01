@@ -22,33 +22,30 @@ require 'xbee-ruby/response'
 
 module XBeeRuby
 
-	class TxResponse < Response
 
-		frame_type 0x8b
+	class RxResponse < Response
 
-		attr_reader :frame_id
+		frame_type 0x90
+
+		attr_reader :address64
 		attr_reader :address16
-		attr_reader :retry_count
-		attr_reader :delivery_status
-		attr_reader :discovery_status
+		attr_reader :receive_options
+		attr_reader :data
 
 		def initialize bytes
-			@frame_id = bytes[1]
-			@address16 = Address16.new *bytes[2..3]
-			@retry_count = bytes[4]
-			@delivery_status = bytes[5]
-			@discovery_status = bytes[6]
+			@address64 = Address64.new *bytes[1..8]
+			@address16 = Address16.new *bytes[9..10]
+			@receive_options = bytes[11]
+			@data = bytes[12..-1]
 		end
 
 		def == other
-			other.class == TxResponse && self.address16 == other.address16 &&
-					self.retry_count == other.retry_count && self.delivery_status == other.delivery_status &&
-					self.discovery_status == other.discovery_status
+			other.class == RxResponse && self.address64 == other.address64 &&
+					self.address16 == other.address16 && self.receive_options == other.receive_options
 		end
 
 		def to_s
-			"TxResponse[#{super}](address16=#{address16}, retry_count=#{retry_count}, " +
-					"delivery_status=#{delivery_status}, discovery_status=#{discovery_status})"
+			"RxResponse[#{super}](address64=#{address64}, address16=#{address16}, receive_otions=#{receive_otions})"
 		end
 	end
 

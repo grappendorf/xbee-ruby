@@ -32,14 +32,8 @@ module XBeeRuby
 			@@response_types[packet.data[0]].new packet.data rescue raise IOError, "Unknown response type 0x#{packet.data[0].to_s 16}"
 		end
 
-		attr_reader :frame_id
-
-		def initialize frame_id
-			@frame_id = frame_id
-		end
-
 		def to_s
-			"Request(frame_id=#{frame_id})"
+			"Request"
 		end
 
 	end
