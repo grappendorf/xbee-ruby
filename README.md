@@ -5,6 +5,14 @@ I developed this gem for my CoYoHo Home Automation System. So only a small part 
 implemented. Especially only Series-2 modules in API-mode 2 and a subset of the available frame types are
 supported.
 
+Supported frame types
+---------------------
+
+0x10 TxRequest
+
+0x8b TxResponse
+0x90 RxResponse
+
 License
 -------
 
