@@ -22,8 +22,8 @@ require 'rspec/mocks/standalone'
 require_relative '../lib/xbee-ruby'
 
 serial = double('SerialPort').as_null_object
-allow(SerialPort).to receive(:create).and_return serial
 xbee = XBeeRuby::XBee.new '/dev/ttyS0', 57600
+xbee.serial = serial
 xbee.open
 num_reads = 0
 start_time = Time.now.to_f

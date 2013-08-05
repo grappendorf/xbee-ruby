@@ -31,7 +31,7 @@ module XBeeRuby
 		end
 
 		def open
-			@serial = SerialPort.new @port, @rate
+			@serial ||= SerialPort.new @port, @rate
 			@serial_input = Enumerator.new { |y| loop do y.yield @serial.readbyte end }
 			@connected = true
 		end
@@ -64,6 +64,9 @@ module XBeeRuby
 			XBeeRuby::Response.from_packet read_packet
 		end
 
+		def serial= io
+			@serial = io
+		end
 	end
 
 end
