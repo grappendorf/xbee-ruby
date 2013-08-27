@@ -28,6 +28,7 @@ module XBeeRuby
 			@port = port
 			@rate = rate
 			@connected = false
+			@logger = nil
 		end
 
 		def open
@@ -54,18 +55,29 @@ module XBeeRuby
 
 		def write_request request
 			write_packet request.packet
+			log { "Packet sent: #{request.packet.bytes.map{|b| b.to_s(16)}.join(',')}" }
 		end
 
 		def read_packet
-			Packet.from_byte_enum @serial_input
+			Packet.from_byte_enum(@serial_input).tap do |packet|
+				log { "Packet received: #{packet.bytes.map{|b| b.to_s(16)}.join(',')}" }
+			end
 		end
 
 		def read_response
-			XBeeRuby::Response.from_packet read_packet
+			Response.from_packet read_packet
 		end
 
 		def serial= io
 			@serial = io
+		end
+
+		def logger= logger
+			@logger = logger
+		end
+
+		def log
+			@logger.call yield if @logger
 		end
 	end
 

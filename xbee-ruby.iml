@@ -2,7 +2,10 @@
 <module type="RUBY_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/lib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
+    </content>
     <orderEntry type="jdk" jdkName="RVM: ruby-2.0.0-p247 [xbee-ruby]" jdkType="RUBY_SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v1.3.5, RVM: ruby-2.0.0-p247 [xbee-ruby]) [gem]" level="application" />
@@ -16,6 +19,10 @@
     <orderEntry type="library" scope="PROVIDED" name="serialport (v1.1.0, RVM: ruby-2.0.0-p247 [xbee-ruby]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="simplecov (v0.7.1, RVM: ruby-2.0.0-p247 [xbee-ruby]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="simplecov-html (v0.7.1, RVM: ruby-2.0.0-p247 [xbee-ruby]) [gem]" level="application" />
+  </component>
+  <component name="RModuleSettingsStorage">
+    <LOAD_PATH number="1" string0="$MODULE_DIR$/lib" />
+    <I18N_FOLDERS number="0" />
   </component>
 </module>
 
