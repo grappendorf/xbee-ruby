@@ -38,7 +38,7 @@ module XBeeRuby
 		end
 
 		def close
-			@serial.close
+			@serial.close if @serial
 			@connected = false
 		end
 
