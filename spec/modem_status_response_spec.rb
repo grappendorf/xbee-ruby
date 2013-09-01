@@ -18,12 +18,20 @@ limitations under the License.
 
 =end
 
-require 'serialport'
-require 'xbee-ruby/version'
-require 'xbee-ruby/address_16'
-require 'xbee-ruby/address_64'
-require 'xbee-ruby/tx_request'
-require 'xbee-ruby/tx_response'
-require 'xbee-ruby/rx_response'
-require 'xbee-ruby/modem_status_response'
-require 'xbee-ruby/xbee'
+require 'spec_helper'
+
+module XBeeRuby
+
+	describe ModemStatusResponse do
+
+		subject { ModemStatusResponse.new [0x8a, 0x12] }
+
+		its(:modem_status) { should == 0x12 }
+
+		describe 'can be reconstructed from a packet' do
+			it { should == Response.from_packet(Packet.new [0x8a, 0x12]) }
+		end
+
+	end
+
+end

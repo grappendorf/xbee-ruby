@@ -18,12 +18,27 @@ limitations under the License.
 
 =end
 
-require 'serialport'
-require 'xbee-ruby/version'
-require 'xbee-ruby/address_16'
-require 'xbee-ruby/address_64'
-require 'xbee-ruby/tx_request'
-require 'xbee-ruby/tx_response'
-require 'xbee-ruby/rx_response'
-require 'xbee-ruby/modem_status_response'
-require 'xbee-ruby/xbee'
+require 'xbee-ruby/response'
+
+module XBeeRuby
+
+	class ModemStatusResponse < Response
+
+		frame_type 0x8a
+
+		attr_reader :modem_status
+
+		def initialize bytes
+			@modem_status = bytes[1]
+		end
+
+		def == other
+			other.class == ModemStatusResponse && self.modem_status == other.modem_status
+		end
+
+		def to_s
+			"ModemStatusResponse[#{super}](modem_status=0x#{modem_status})"
+		end
+	end
+
+end
