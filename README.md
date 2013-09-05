@@ -16,5 +16,5 @@ Supported frame types
 License
 -------
 
-The xbee-ruby code is licensed under the the Apache License, Version 2.0
-You find the license at http://www.apache.org/licenses/LICENSE-2.0
+The xbee-ruby code is licensed under the the MIT License
+You find the license in the attached LICENSE.txt file
