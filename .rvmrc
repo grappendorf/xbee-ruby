@@ -1,1 +1,1 @@
-rvm use --create ruby-2.0.0@xbee-ruby --create
+rvm use --create ruby-2.1.0@xbee-ruby --create
