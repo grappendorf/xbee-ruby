@@ -24,16 +24,27 @@ module XBeeRuby
 
 	class XBee
 
-		def initialize port, rate
+		# Either specify the port and serial parameters
+		#
+		#   xbee = XBeeRuby::Xbee.new port: '/dev/ttyUSB0', rate: 9600
+		#
+		# or pass in a SerialPort like object
+		#
+		#   xbee = XBeeRuby::XBee.new serial: some_serial_mockup_for_testing
+		#
+		def initialize port: '/dev/ttyUSB0', rate: 9600, serial: nil
 			@port = port
 			@rate = rate
+			@serial = serial
 			@connected = false
 			@logger = nil
 		end
 
 		def open
 			@serial ||= SerialPort.new @port, @rate
-			@serial_input = Enumerator.new { |y| loop do y.yield @serial.readbyte end }
+			@serial_input = Enumerator.new { |y| loop do
+				y.yield @serial.readbyte
+			end }
 			@connected = true
 		end
 
@@ -55,12 +66,12 @@ module XBeeRuby
 
 		def write_request request
 			write_packet request.packet
-			log { "Packet sent: #{request.packet.bytes.map{|b| b.to_s(16)}.join(',')}" }
+			log { "Packet sent: #{request.packet.bytes.map { |b| b.to_s(16) }.join(',')}" }
 		end
 
 		def read_packet
 			Packet.from_byte_enum(@serial_input).tap do |packet|
-				log { "Packet received: #{packet.bytes.map{|b| b.to_s(16)}.join(',')}" }
+				log { "Packet received: #{packet.bytes.map { |b| b.to_s(16) }.join(',')}" }
 			end
 		end
 
