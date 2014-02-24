@@ -10,6 +10,6 @@ Licensed under the The MIT License (MIT)
 
 module XBeeRuby
 
-	VERSION = '0.0.1'
+	VERSION = '0.0.2'
 
 end
