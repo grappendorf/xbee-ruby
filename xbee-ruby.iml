@@ -12,6 +12,7 @@
     <orderEntry type="library" scope="PROVIDED" name="diff-lcs (v1.2.4, RVM: ruby-2.1.1 [xbee-ruby]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="docile (v1.1.3, RVM: ruby-2.1.1 [xbee-ruby]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.8.4, RVM: ruby-2.1.1 [xbee-ruby]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rake (v10.1.0, RVM: ruby-2.1.1 [xbee-ruby]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec (v2.14.1, RVM: ruby-2.1.1 [xbee-ruby]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec-core (v2.14.4, RVM: ruby-2.1.1 [xbee-ruby]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec-expectations (v2.14.0, RVM: ruby-2.1.1 [xbee-ruby]) [gem]" level="application" />
@@ -19,11 +20,9 @@
     <orderEntry type="library" scope="PROVIDED" name="serialport (v1.3.0, RVM: ruby-2.1.1 [xbee-ruby]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="simplecov (v0.8.2, RVM: ruby-2.1.1 [xbee-ruby]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="simplecov-html (v0.8.0, RVM: ruby-2.1.1 [xbee-ruby]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="xbee-ruby (v[path], /home/grappendorf/workspace-grapelabs/xbee-ruby) [path][gem]" level="application" />
   </component>
   <component name="RModuleSettingsStorage">
     <LOAD_PATH number="1" string0="$MODULE_DIR$/lib" />
     <I18N_FOLDERS number="0" />
   </component>
 </module>
-

@@ -24,3 +24,6 @@ tmp
 .idea/gradle.xml
 .idea/dataSources.*
 atlassian-ide-plugin.xml
+
+# Sublime
+*.sublime-workspace
